@@ -12,7 +12,12 @@ systemctl is-active libvirtd
 echo "== loading vfio-pci =="
 sudo modprobe vfio-pci
 echo vfio-pci | sudo tee /etc/modules-load.d/vfio-pci.conf >/dev/null
-lsmod | grep -q '^vfio_pci ' && echo "vfio-pci loaded" || { echo "vfio-pci failed to load" >&2; exit 1; }
+if [[ -d /sys/module/vfio_pci ]]; then
+  echo "vfio-pci loaded"
+else
+  echo "vfio-pci failed to load" >&2
+  exit 1
+fi
 
 echo "== reserving 1G hugepages (${HUGEPAGES_PER_NODE} per node) =="
 for node in 0 1; do
