@@ -129,8 +129,8 @@ but not currently loaded/bound to any device.
 | SMMU/IOMMU | ARM SMMUv3 active, `Translated` default domain — passthrough-capable |
 | libvirt/QEMU | Stock Ubuntu 10.0.0 / 8.2.2 — **not** mohan's patched GH200/GB300 hypervisor fork |
 | libvirtd | Installed, currently inactive |
-| Closest cosmos-dev template | `gh200.1.j2` (structurally analogous Grace+GPU coherent design) — reference only, assumes patches not present here |
-| Existing GB300 vmslot in cosmos-dev | `gb300.metal-4.sku23.yaml`, bare-metal stub only, no per-GPU slot carve-up |
+| Closest mohan-dev template | `gh200.1.j2` (structurally analogous Grace+GPU coherent design) — reference only, assumes patches not present here |
+| Existing GB300 vmslot in mohan-dev | `gb300.metal-4.sku23.yaml`, bare-metal stub only, no per-GPU slot carve-up |
 
 ## Open questions / risks carried into the plan
 1. Whether stock QEMU 8.2.2 + libvirt 10.0.0 support nested SMMUv3 (`iommufd
